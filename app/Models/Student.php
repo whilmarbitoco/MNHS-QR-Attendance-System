@@ -15,6 +15,7 @@ class Student extends Model
         'grade',
         'strand',
         'qr',
-        'uuid'
+        'uuid',
+        'photo'
     ];
 }

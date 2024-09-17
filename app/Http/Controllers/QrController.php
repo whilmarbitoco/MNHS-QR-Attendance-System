@@ -19,10 +19,9 @@ class QrController extends Controller
 
         $student = Student::where('qr', $request->qr)->first();
 
-        if ($student) {
-            return $student;
-        }
-        return false;
+        
+        return $student;
+        
     }
 }
 

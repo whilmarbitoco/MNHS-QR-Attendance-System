@@ -4,8 +4,7 @@ import QrPopUp from "./QrPopUp";
 
 const Table = ({ tableName, tableData, showSearch = false }) => {
     const [tableDatas, setTableDatas] = useState(tableData);
-    const [qrCode, setQrCode] = useState("");
-
+    const [student, setStudent] = useState({ lastname: "", qr: "" });
     return (
         <div className="card-body">
             <div className="card-title">
@@ -56,7 +55,7 @@ const Table = ({ tableName, tableData, showSearch = false }) => {
                                             className="btn btn-info text-white"
                                             data-bs-toggle="modal"
                                             data-bs-target="#popUpQr"
-                                            onClick={() => setQrCode(data.qr)}
+                                            onClick={() => setStudent(data)}
                                         >
                                             Generate QR
                                         </button>
@@ -81,7 +80,7 @@ const Table = ({ tableName, tableData, showSearch = false }) => {
                 tabIndex="-1"
                 aria-hidden="true"
             >
-                <QrPopUp qrCode={qrCode} />
+                <QrPopUp student={student} />
             </div>
         </div>
     );

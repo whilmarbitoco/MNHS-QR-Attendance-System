@@ -14,8 +14,8 @@ Route::get('/', function () {
 Route::get('/student', [StudentController::class, "index"])->name("student.index");
 Route::post('/student', [StudentController::class, "create"])->name("student.create");
 
-Route::get('/qr', [QrController::class, "index"])->name("student.index");
-Route::post('/qr', [QrController::class, "create"])->name("student.create");
+Route::get('/qr', [QrController::class, "index"])->name("qr.index");
+Route::post('/qr', [QrController::class, "create"])->name("qr.create");
 
 
 Route::get('/dashboard', function () {
