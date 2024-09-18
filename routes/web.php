@@ -7,10 +7,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Admin');
-});
 
+Route::get('/', [StudentController::class,'home'])->name('student.home');
 Route::get('/student', [StudentController::class, "index"])->name("student.index");
 Route::post('/student', [StudentController::class, "create"])->name("student.create");
 

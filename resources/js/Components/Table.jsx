@@ -5,6 +5,25 @@ import QrPopUp from "./QrPopUp";
 const Table = ({ tableName, tableData, showSearch = false }) => {
     const [tableDatas, setTableDatas] = useState(tableData);
     const [student, setStudent] = useState({ lastname: "", qr: "" });
+
+    const [searchData, setSearchData] = useState(" ")
+
+    const handleSearch = (e) => { 
+        setSearchData(e.target.value)
+
+        if (searchData == "") {
+            setTableDatas(tableData)
+            return;
+        }
+
+        let searched = tableDatas.filter(student => {
+            return student.firstname == searchData || student.lastname == searchData
+        })
+
+        setTableDatas(searched)
+    }
+
+
     return (
         <div className="card-body">
             <div className="card-title">
@@ -16,6 +35,8 @@ const Table = ({ tableName, tableData, showSearch = false }) => {
                                 type="text"
                                 className="form-control w-50"
                                 placeholder="Search student..."
+                                onChange={handleSearch}
+                                value={searchData}
                             />
                             <button
                                 className="btn btn-primary"

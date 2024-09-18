@@ -10,6 +10,13 @@ use Illuminate\Support\Str;
 
 class StudentController extends Controller
 {
+
+    function home() {
+        $students = Student::all();
+        
+        return Inertia::render('Admin', ['students' => $students]);
+    }
+
     function index() {
 
         $students = Student::all();

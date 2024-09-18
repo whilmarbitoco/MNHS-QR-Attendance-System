@@ -3,7 +3,7 @@ import MainLayout from "@/Layouts/MainLayout";
 import Card from "@/Components/Card";
 import Table from "@/Components/Table";
 
-export default function Dashboard() {
+export default function Dashboard({students}) {
     return (
         <MainLayout pageName="Dashboard">
             <div className="row">
@@ -24,7 +24,7 @@ export default function Dashboard() {
             <div className="card">
                 <Table
                     tableName="All Students"
-                    tableData=""
+                    tableData={students}
                     showSearch={false}
                 />
             </div>
