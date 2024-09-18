@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QrController;
+use App\Http\Controllers\StrandController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,10 @@ use Inertia\Inertia;
 Route::get('/', [StudentController::class,'home'])->name('student.home');
 Route::get('/student', [StudentController::class, "index"])->name("student.index");
 Route::post('/student', [StudentController::class, "create"])->name("student.create");
+
+Route::get("/strand", [StrandController::class,"index"])->name("strand.index");
+Route::post("/strand", [StrandController::class,"create"])->name("strand.create");
+
 
 Route::get('/qr', [QrController::class, "index"])->name("qr.index");
 Route::post('/qr', [QrController::class, "create"])->name("qr.create");

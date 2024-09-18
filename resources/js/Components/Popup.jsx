@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { router } from "@inertiajs/react";
 import axios from "axios";
 
-const Popup = () => {
+const Popup = ({ strands }) => {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [strand, setStrand] = useState("HUMMS-A");
     const [gradeLevel, setGradeLevel] = useState("11");
     const [photo, setPhoto] = useState(null);
+    const [strandList, setStrandList] = useState(strands);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,7 +25,6 @@ const Popup = () => {
                 "Content-Type": "multipart/form-data",
             },
         });
-    
     };
 
     return (
@@ -95,12 +95,13 @@ const Popup = () => {
                                     setStrand(e.target.value);
                                 }}
                             >
-                                <option value="HUMSS-A">HUMSS A</option>
-                                <option value="HUMSS-B">HUMSS B</option>
-                                <option value="ABM">ABM</option>
-                                <option value="GAS">GAS</option>
-                                <option value="Cookery">Cookery</option>
-                                <option value="Agri-Crop">Agri-Crop</option>
+                                {strandList.map((strnd, i) => {
+                                    return (
+                                        <option key={i} value={strnd.name}>
+                                            {strnd.name}
+                                        </option>
+                                    );
+                                })}
                             </select>
                         </div>
                         <div className="mb-3">

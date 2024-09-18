@@ -11,6 +11,12 @@ const Sidebar = () => {
                         <span>Dashboard</span>
                     </Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link collapsed" href="/strand">
+                        <i className="bi bi-people"></i>
+                        <span>Strands</span>
+                    </Link>
+                </li>
 
                 <li className="nav-item">
                     <Link className="nav-link collapsed" href="/student">

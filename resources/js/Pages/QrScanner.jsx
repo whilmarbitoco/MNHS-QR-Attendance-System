@@ -41,7 +41,7 @@ const QrScanner = () => {
             </div>
             <div className="bg-white drop-shadow-lg w-[50%] h-full m-3 rounded-lg p-4">
                 <div class="container">
-                    <div class="row ">
+                    <div class="row bg-red-7000">
                         <div class="col-md-6">
                             <img src={scanned.photo} className="w-full" />
                         </div>
@@ -60,6 +60,7 @@ const QrScanner = () => {
                                         className="form-control"
                                         id="firstname"
                                         value={scanned.firstname}
+                                        disabled
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -74,6 +75,7 @@ const QrScanner = () => {
                                         className="form-control"
                                         id="lastname"
                                         value={scanned.lastname}
+                                        disabled
                                     />
                                 </div>
 
@@ -89,6 +91,7 @@ const QrScanner = () => {
                                         className="form-control"
                                         id="lastname"
                                         value={scanned.strand}
+                                        disabled
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -103,6 +106,7 @@ const QrScanner = () => {
                                         className="form-control"
                                         id="lastname"
                                         value={scanned.grade}
+                                        disabled
                                     />
                                 </div>
                             </form>

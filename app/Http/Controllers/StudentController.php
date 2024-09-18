@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Strand;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -13,15 +14,17 @@ class StudentController extends Controller
 
     function home() {
         $students = Student::all();
+        $strands = Strand::all();
         
-        return Inertia::render('Admin', ['students' => $students]);
+        return Inertia::render('Admin', ['students' => $students, 'strands'=> $strands]);
     }
 
     function index() {
 
         $students = Student::all();
+        $strands = Strand::all();
 
-        return Inertia::render('Student', ['students' => $students]);
+        return Inertia::render('Student',['students' => $students, 'strands'=> $strands]);
     }
 
     public function create(Request $request) {

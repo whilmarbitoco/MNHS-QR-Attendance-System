@@ -2,27 +2,29 @@ import { useState } from "react";
 import Popup from "./Popup";
 import QrPopUp from "./QrPopUp";
 
-const Table = ({ tableName, tableData, showSearch = false }) => {
+const Table = ({ tableName, tableData, showSearch = false, strands }) => {
     const [tableDatas, setTableDatas] = useState(tableData);
     const [student, setStudent] = useState({ lastname: "", qr: "" });
 
-    const [searchData, setSearchData] = useState(" ")
+    const [searchData, setSearchData] = useState(" ");
 
-    const handleSearch = (e) => { 
-        setSearchData(e.target.value)
+    const handleSearch = (e) => {
+        setSearchData(e.target.value);
 
         if (searchData == "") {
-            setTableDatas(tableData)
+            setTableDatas(tableData);
             return;
         }
 
-        let searched = tableDatas.filter(student => {
-            return student.firstname == searchData || student.lastname == searchData
-        })
+        let searched = tableDatas.filter((student) => {
+            return (
+                student.firstname == searchData ||
+                student.lastname == searchData
+            );
+        });
 
-        setTableDatas(searched)
-    }
-
+        setTableDatas(searched);
+    };
 
     return (
         <div className="card-body">
@@ -93,7 +95,7 @@ const Table = ({ tableName, tableData, showSearch = false }) => {
                 tabIndex="-1"
                 aria-hidden="true"
             >
-                <Popup />
+                <Popup strands={strands} />
             </div>
             <div
                 className="modal fade"
