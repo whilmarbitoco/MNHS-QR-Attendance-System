@@ -3,7 +3,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const QrScanner = () => {
-    const [scanned, setScanned] = useState("");
+    const [scanned, setScanned] = useState({
+        firstname: "",
+        lastname: "",
+        photo: "",
+        gradelLevel: "",
+        strand: "",
+    });
 
     useEffect(() => {
         async function onScanSuccess(decodedText) {
@@ -37,7 +43,7 @@ const QrScanner = () => {
                 <div class="container">
                     <div class="row ">
                         <div class="col-md-6">
-                            <img src="user.png" className="w-full" />
+                            <img src={scanned.photo} className="w-full" />
                         </div>
 
                         <div class="col-md-6">
@@ -53,7 +59,7 @@ const QrScanner = () => {
                                         type="text"
                                         className="form-control"
                                         id="firstname"
-                                        required
+                                        value={scanned.firstname}
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -67,29 +73,37 @@ const QrScanner = () => {
                                         type="text"
                                         className="form-control"
                                         id="lastname"
-                                        required
+                                        value={scanned.lastname}
+                                    />
+                                </div>
+
+                                <div className="mb-3">
+                                    <label
+                                        htmlFor="lastname"
+                                        class="form-label"
+                                    >
+                                        Strand
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="lastname"
+                                        value={scanned.strand}
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="strand" class="form-label">
-                                        Strand
-                                    </label>
-                                    <select
-                                        className="form-select"
-                                        id="strand"
-                                    ></select>
-                                </div>
-                                <div className="mb-3">
                                     <label
-                                        htmlFor="gradelevel"
+                                        htmlFor="lastname"
                                         class="form-label"
                                     >
                                         Grade Level
                                     </label>
-                                    <select
-                                        className="form-select"
-                                        id="gradelevel"
-                                    ></select>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="lastname"
+                                        value={scanned.grade}
+                                    />
                                 </div>
                             </form>
                         </div>
